@@ -29,7 +29,7 @@ No importa que tipo de información estemos transmitiendo, siempre deberemos hac
 * [Añadir más test asíncronos.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#a%C3%B1adir-m%C3%A1s-test-as%C3%ADncronos)
 * [Testability.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#testability)
 * [Robustness.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#robustness)
-* [Resultado de los Tests.]()
+* [Resultado de los Tests.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull/blob/master/README.md#resultado-de-los-tests)
 
 
 
