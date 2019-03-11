@@ -4,6 +4,35 @@ Los servicios de red tienen dos objetivos: conectar dos puntos y transmitir info
 
 No importa que tipo de información estemos transmitiendo, siempre deberemos hacer una conexión primero.
 
+## Índice 
+
+* [Enlace de un servidor a un puerto `TCP`.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#enlace-de-un-servidor-a-un-puerto-tcp)
+* [Escribir datos en un Socket.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#escribir-datos-en-un-socket)
+* [Conexión a un servidor Socket TCP con Netcat.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#conexi%C3%B3n-a-un-servidor-socket-tcp-con-netcat)
+* [Escuchando en Sockets Unix.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#escuchando-en-sockets-unix)
+* [Implementando un protocolo de mensajería.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#implementando-un-protocolo-de-mensajer%C3%ADa)
+* [Serialización de mensajes con JSON.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#serializaci%C3%B3n-de-mensajes-con-json)
+* [Cambiando a mensajes JSON.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#cambiando-a-mensajes-json)
+* [Creación de cliente de conexiones sockets.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#creaci%C3%B3n-de-cliente-de-conexiones-sockets)
+* [Problema del límite de mensajes.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#problema-del-l%C3%ADmite-de-mensajes)
+* [Implementando un servicio de pruebas.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#implementando-un-servicio-de-pruebas)
+* [Creación de módulos personalizados.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#creaci%C3%B3n-de-m%C3%B3dulos-personalizados)
+* [Extender EventEmitter.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#extender-eventemitter)
+* [Herencia en Node.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#herencia-en-node)
+* [Eventos de datos de almacenamiento en buffer.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#eventos-de-datos-de-almacenamiento-en-buffer)
+* [Exportando funcionalidad en un módulo](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#exportando-funcionalidad-en-un-m%C3%B3dulo)
+* [Importando un módulo Node.js](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#importando-un-m%C3%B3dulo-nodejs)
+* [Desarrollando pruebas con Mocha.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#desarrollando-pruebas-con-mocha)
+* [Instalación de Mocha.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#instalaci%C3%B3n-de-mocha)
+* [Test con Mocha.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#test-con-mocha)
+* [Ejecución.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#ejecuci%C3%B3n)
+* [Añadir más test asíncronos.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#a%C3%B1adir-m%C3%A1s-test-as%C3%ADncronos)
+* [Testability.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#testability)
+* [Robustness.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#robustness)
+* [Resultado de los Tests.]()
+
+
+
 ## Enlace de un servidor a un puerto `TCP`.
 
 La conexión de un `Socket TCP` consiste en dos puntos finales. Un punto final se une a un puerto numerado mientras que el otro se conecta a un puerto.
@@ -223,7 +252,7 @@ Si se quiere especificar un tiempo para un test puede usar el `timeout`
 ![timeout](https://user-images.githubusercontent.com/47355927/54155918-ffb09580-443c-11e9-8157-971b04249b64.png)
 
 
-## 	Testability
+## Testability.
 
 * Test que divide un mensaje en dos o más pedazos.
 
@@ -246,8 +275,9 @@ Si se quiere especificar un tiempo para un test puede usar el `timeout`
 ![6](https://user-images.githubusercontent.com/47355927/54156135-89606300-443d-11e9-989e-cfcb90f5745d.png)
 ![7](https://user-images.githubusercontent.com/47355927/54156142-8a919000-443d-11e9-9733-cb5e802760fc.png)
 
+## Resultado de los Tests.
 
-
+![8](https://user-images.githubusercontent.com/47355927/54156291-e4925580-443d-11e9-9774-dc0bf429590e.png)
 
 
 
