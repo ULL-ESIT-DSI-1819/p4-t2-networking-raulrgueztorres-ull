@@ -12,17 +12,17 @@ Esto funciona como en los sistemas telefónicos.
 
 En Node las operaciones de enlace y conexión son proporcionadas por el módulo `net`.  
 
-Captura binding-net.js
+![1](https://user-images.githubusercontent.com/47355927/54155210-8feddb00-443b-11e9-9fc6-0cbd1e2193b4.png)
 
 El método `net.createServer` coge una `callback` y devuelve un objeto servidor. La `callback` se invoca cuando se conecta otro punto. El parámetro de conexión es un objecto `Socket` que se puede usar para enviar y recibir datos.
 
 El método `server.listen` nos permite escuchar por el puerto indicado.
 
-Captura Esquema
+![esquema](https://user-images.githubusercontent.com/47355927/54155259-a72cc880-443b-11e9-9e3f-8e2b2b246367.png)
 
 ## Escribir datos en un Socket.
 
-Captura net-watcher
+![2](https://user-images.githubusercontent.com/47355927/54155324-c9bee180-443b-11e9-9d9d-e50248c35101.png)
 
 Ecribimos este código con el nombre `net-watcher.js`. Como podemos ver le pasamos el nombre del fichero a observar como argumento. En caso de que el usuario no proporcione ninguno devolveremos un error personalizado.
 
@@ -43,11 +43,11 @@ En una terminal usaremos el comando `watch -n 1 touch target.txt` para 	modifica
 En la segunda terminal ejecutaremos el servidor `node net-watcher.js target.txt`.
 Por último, en una tercera terminal, usaremos Netcat para conectarnos. Usaremos `nc localhost 60300`. Netcat es un programa de utilidad de Socket.
 
-Captura ejecucion1.
+![ejecucion1](https://user-images.githubusercontent.com/47355927/54155377-e6f3b000-443b-11e9-9252-3f2dbfa717bf.png)
 
 Un esquema detallado de lo que sucede sería el siguiente.
 
-Captura esquema2.
+![esquema2](https://user-images.githubusercontent.com/47355927/54155400-f4a93580-443b-11e9-92b7-440f05041bb2.png)
 
 ## Escuchando en Sockets Unix.
 
@@ -97,19 +97,19 @@ Nuestra tarea es usar `JSON.stringify` para codificar objectos de mensaje y envi
 
 Lo que haremos es modificar el `connection.write`.
 
-Captura connection
+![connection](https://user-images.githubusercontent.com/47355927/54155432-08549c00-443c-11e9-8080-5bffdf03f9ed.png)
 
 Ahora ejecutamos el nuevo archivo guardado como `net-watcher-json-service.js`
 
-captura server-json
+![server-json](https://user-images.githubusercontent.com/47355927/54155450-12769a80-443c-11e9-9890-1a4681d88e77.png)
 
 ## Creación de cliente de conexiones sockets.
 
-Captura json-client
+![json-client](https://user-images.githubusercontent.com/47355927/54155466-1d312f80-443c-11e9-9136-2e165547b4c6.png)
 
 Este programa es un pequeño cliente que utiliza `net.connect` para crear una conexión cliente en el puerto especificado del localhost. Cuando llega algún dato es parseado y se muestra adecuadamente por consola.
 
-Captura ejec-client-json
+![ejec-client-json](https://user-images.githubusercontent.com/47355927/54155575-55387280-443c-11e9-81a3-a8a88d2d9a6b.png)
 
 Tenemos un problema por ahora y es que no estamos manejando errores.
 
@@ -119,21 +119,21 @@ En el mejor de los casos los mensajes llegarán a la vez. El problema es que a v
 
 El protocolo LDJ que desarrollamos anteriormente separa los mensajes con nuevas lineas. 
 
-Captura message-style.
+![message-style](https://user-images.githubusercontent.com/47355927/54155600-61243480-443c-11e9-8243-1c1b3a883102.png)
 
 Si llegara un mensaje separado llegaria como dos datos. Quedaría algo así:
 
-Captura split-message
+![split-message](https://user-images.githubusercontent.com/47355927/54155611-6aad9c80-443c-11e9-95a6-b61fcedbce31.png)
 
 ## Implementando un servicio de pruebas.
 
 Implementaremos un servicio de pruebas que divide a propósito un mensaje en múltiples partes.
 
-Captura test-json
+![test-json](https://user-images.githubusercontent.com/47355927/54155630-76995e80-443c-11e9-99a6-5e9c09f71bdb.png)
 
 Una vez guardado ejecutamos y comprobamos el error de que solo recibe en primer lugar un fragmento del mensaje. Como ya comentamos lo que hace es parsear el mensaje que le llega y como solo coge lo primero que le llegó salta el error al estar incompleto.
 
-Captura error-client
+![error-client](https://user-images.githubusercontent.com/47355927/54155647-80bb5d00-443c-11e9-9950-84b862c7b893.png)
 
 ## Creación de módulos personalizados.
 
@@ -149,36 +149,35 @@ Para liberar al programa cliente del peligro de dividir los mensajes JSON, imple
 
 Este código configura LDJClient para heredar de EventEmitter.
 
-Captura ldj-client
+![ldj-client](https://user-images.githubusercontent.com/47355927/54155667-8ca71f00-443c-11e9-86bc-81f86d7ee6c4.png)
 
 ## Eventos de datos de almacenamiento en buffer.
 
-
-Captura modificada-ldj
+![modificada-ldj](https://user-images.githubusercontent.com/47355927/54155682-9761b400-443c-11e9-8318-ec8cd0c0fd82.png)
 
 ## Exportando funcionalidad en un módulo
 
-captura añadido 
+![añadido](https://user-images.githubusercontent.com/47355927/54155703-a21c4900-443c-11e9-9ebd-7ee63e7d3257.png)
 
 Dentro de la definición de clase, después del constructor, estamos agregando un método estático llamado `connect`.
 
 El código para usar el módulo sería algo como esto
 
-captura librería
+![libreria](https://user-images.githubusercontent.com/47355927/54155717-acd6de00-443c-11e9-8f98-41e1ca1ea5e7.png)
 
 O podríamos usar el método `connect`.
 
-Captura lib-connect
+![lib-connect](https://user-images.githubusercontent.com/47355927/54155738-b6604600-443c-11e9-8c3c-f7ee21b8ca53.png)
 
 ## Importando un módulo Node.js
 
-captura ldj-module-use
+![ldj-module-use](https://user-images.githubusercontent.com/47355927/54155762-bf511780-443c-11e9-861b-1b616a823e3d.png)
 
 La principal diferencia respecto a lo anterior es que, en lugar de enviar buffers de datos directamente a JSON.parse , este programa se basa en el módulo ldj-client para producir eventos de mensajes .
 
 Ejecutamos el servidor de pruebas y el nuevo cliente.
 
-Captura prueba
+![prueba](https://user-images.githubusercontent.com/47355927/54155778-caa44300-443c-11e9-9fce-b2620b5a0266.png)
 
 ## Desarrollando pruebas con Mocha.
 
@@ -199,40 +198,40 @@ Creamos un subdirectorio llamado `test` que es donde por defecto `Mocha` buscar�
 
 Desarrollamos un fichero de pruebas
 
-captura test1
+![test1](https://user-images.githubusercontent.com/47355927/54155820-d6900500-443c-11e9-8645-f11bf4166f1c.png)
 
 ## Ejecución.
 
 Para poder ejecutar tenemos que añadir en el `package.json` lo siguiente en la sección `test`
 
-captura json
+![json](https://user-images.githubusercontent.com/47355927/54155846-e0b20380-443c-11e9-90d4-664ef8792048.png)
 
 A continuación, ejecutamos con `npm test`.
 
-Captura ejec1.
+![ejec1](https://user-images.githubusercontent.com/47355927/54155867-e90a3e80-443c-11e9-98e0-290694a9f27b.png)
 
 ## Añadir más test asíncronos.
 
 Modificamos el `describe` de la siguiente manera
 
-Captura describemod
+![describemod](https://user-images.githubusercontent.com/47355927/54155885-f32c3d00-443c-11e9-8eff-25a205b7e12c.png)
 
 Esta prueba divide el mensaje en dos partes para ser emitidas por el `stream` uno después del otro.
 
 Si se quiere especificar un tiempo para un test puede usar el `timeout`
 
-captura timeout
+![timeout](https://user-images.githubusercontent.com/47355927/54155918-ffb09580-443c-11e9-8157-971b04249b64.png)
 
 
-##Testability
+## 	Testability
 
 * Test que divide un mensaje en dos o más pedazos.
 
-Captura split 
+![3](https://user-images.githubusercontent.com/47355927/54156030-3e465000-443d-11e9-9506-e9c69bb6ba0b.png)
 
 * Test que pasa un objecto nulo y detecta el error.
 
-Captura error-null 
+![4](https://user-images.githubusercontent.com/47355927/54156049-4e5e2f80-443d-11e9-98cd-9474b5660833.png)
 
 ## Robustness.
 
@@ -240,11 +239,12 @@ Captura error-null
 
 * Aquí tenemos un test para enviar y detectar el error de pasar un mensaje que no es JSON. 
 
-Captura de not-json
+![5](https://user-images.githubusercontent.com/47355927/54156090-633ac300-443d-11e9-93ec-7acc432be21e.png)
 
 * Si falta el último salto de linea lo que pasa es que se quedará esperando y nunca emitirá el mensaje. Para poder manejar esta situación implementamos un evento `close` que comprobará si existe o no un `\n` al final del JSON. En caso de no existir lanza el error o, en caso contrario, emite el mensaje.
 
-Captura close 
+![6](https://user-images.githubusercontent.com/47355927/54156135-89606300-443d-11e9-989e-cfcb90f5745d.png)
+![7](https://user-images.githubusercontent.com/47355927/54156142-8a919000-443d-11e9-9733-cb5e802760fc.png)
 
 
 
