@@ -17,7 +17,7 @@ describe('LDJClient', () => {
 			done();
 		});
 
-		stream.emit('data', '{"foo": "bar"');
+		stream.emit('data', '{"foo": "bar"}\n');
 		stream.emit('close');
 	});
 });
