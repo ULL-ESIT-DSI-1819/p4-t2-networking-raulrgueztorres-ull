@@ -3,6 +3,7 @@
 const net = require('net');
 const client = net.connect({port: 60300});
 
+/*Conectamos por el puerto indicado y en caso de recibir datos los procesamos*/
 client.on('data', data => {
 	const message = JSON.parse(data);
 	if(message.type === 'watching') {

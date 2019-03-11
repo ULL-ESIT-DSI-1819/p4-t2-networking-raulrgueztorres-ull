@@ -1,9 +1,11 @@
+/** @author Raul Rodriguez Torres*/
 'use strict'
 
 const assert = require('assert');
 const EventEmitter = require('events').EventEmitter;
 const LDJClient = require('../lib/ldj-client.js');
 
+/** Test unitario que comprueba que se pueden mandar mensajes divididos*/
 describe('LDJClient', () => {
 	let stream = null;
 	let client = null;

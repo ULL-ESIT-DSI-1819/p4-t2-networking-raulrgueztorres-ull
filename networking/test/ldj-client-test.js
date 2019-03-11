@@ -1,9 +1,11 @@
+/** @author Raul Rodriguez Torres*/
 'use strict'
 
 const assert = require('assert');
 const EventEmitter = require('events').EventEmitter;
 const LDJClient = require('../lib/ldj-client.js');
 
+/** Método en el que se realiza un test unitario que envia un mensaje*/
 describe('LDJClient', () => {
 	let stream = null;
 	let client = null;

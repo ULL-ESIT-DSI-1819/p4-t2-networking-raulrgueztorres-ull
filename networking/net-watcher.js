@@ -3,11 +3,11 @@
 const fs = require('fs');
 const net = require('net');
 const filename = process.argv[2];
-
+/* Comprobamos que se introdujo nombre de fichero*/
 if(!filename) {
 	throw Error('Error: No filename specified.');
 }
-
+/* Establecemos la conexion y escuchamos por el puerto indicado*/
 net.createServer( connection => {
 	//Reporting.
 	console.log('Subscriber connected.');

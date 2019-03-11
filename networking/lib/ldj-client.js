@@ -1,8 +1,13 @@
+/*@author Raul Rodriguez Torres*/
 'use strict'
 
+/** Obtenemos EventEmitter del paquete events*/
 const EventEmitter = require('events').EventEmitter;
 
+/** Declaración de la clase LDJClient que hereda de EventEmitter*/
 class LDJClient extends EventEmitter {
+	/*Constructor de la clase
+	* @param stream */
 	constructor(stream) {
 		super();
 		let buffer = '';
@@ -12,7 +17,7 @@ class LDJClient extends EventEmitter {
 			while(boundary !== -1) {
 				const input = buffer.substring(0, boundary);
 				buffer = buffer.substring(boundary + 1);
-				this.emit('message', JSON.parse(input));
+                this.emit('message', JSON.parse(input)); 
 				boundary = buffer.indexOf('\n');
 			}
 		});
@@ -38,19 +43,6 @@ class LDJClient extends EventEmitter {
 	static connect(stream) {
 		return new LDJClient(stream);
 	}
-/*	
-	close(data) {
-		buffer += data; 
-		buffer += '\n';
-		let boundary = buffer.indexOf('\n');
-                while(boundary !== -1) {
-                	const input = buffer.substring(0, boundary);
-                        buffer = buffer.substring(boundary + 1);
-                        this.emit('message', JSON.parse(input));
-                        boundary = buffer.indexOf('\n');
-		 }
-	
-	}*/
 }
-
+/* Exporta la clase LDJClient*/
 module.exports = LDJClient;

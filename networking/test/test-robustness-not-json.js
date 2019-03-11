@@ -1,7 +1,9 @@
+/** @author Raul Rodriguez Torres*/
 const assert = require('assert');
 const EventEmitter = require('events').EventEmitter;
 const LDJClient = require('../lib/ldj-client.js');
 
+/** Test unitario que envia un mensaje no JSON*/
 describe('LDJClient', () => {
 	let stream = null;
 	let client = null;
