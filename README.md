@@ -30,8 +30,7 @@ No importa que tipo de información estemos transmitiendo, siempre deberemos hac
 * [Testability.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#testability)
 * [Robustness.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull#robustness)
 * [Resultado de los Tests.](https://github.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull/blob/master/README.md#resultado-de-los-tests)
-
-
+* [Travis]()
 
 ## Enlace de un servidor a un puerto `TCP`.
 
@@ -279,6 +278,9 @@ Si se quiere especificar un tiempo para un test puede usar el `timeout`
 
 ![8](https://user-images.githubusercontent.com/47355927/54156291-e4925580-443d-11e9-9774-dc0bf429590e.png)
 
+## Travis.
+
+[![Build Status](https://travis-ci.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull.svg?branch=master)](https://travis-ci.com/ULL-ESIT-DSI-1819/p4-t2-networking-raulrgueztorres-ull)
 
 
 
