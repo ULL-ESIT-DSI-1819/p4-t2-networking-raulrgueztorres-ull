@@ -9,33 +9,38 @@ class LDJClient extends EventEmitter {
 	/*Constructor de la clase
 	* @param stream */
 	constructor(stream) {
-		super();
-		let buffer = '';
-		stream.on('data', data => {
-			buffer += data;
-			let boundary = buffer.indexOf('\n');
-			while(boundary !== -1) {
-				const input = buffer.substring(0, boundary);
-				buffer = buffer.substring(boundary + 1);
-                this.emit('message', JSON.parse(input)); 
-				boundary = buffer.indexOf('\n');
-			}
-		});
+        if(stream != null )
+        {
+		    super();
+		    let buffer = '';
+		    stream.on('data', data => {
+			    buffer += data;
+			    let boundary = buffer.indexOf('\n');
+			    while(boundary !== -1) {
+				    const input = buffer.substring(0, boundary);
+				    buffer = buffer.substring(boundary + 1);
+                    this.emit('message', JSON.parse(input)); 
+				    boundary = buffer.indexOf('\n');
+			    }
+		    });
 
-		stream.on('close', () => {
-			let buff = buffer.indexOf('\n');
+		    stream.on('close', () => {
+			    let buff = buffer.indexOf('\n');
 
-			if(buff !== -1)
-			{
-				const input = buffer.substring(0,buff);
-				this.emit('message' , JSON.parse(input));
-				buffer = ''; 
-			}
-			else
-			{
-				throw "Error in close event";
-			}
-		});
+			    if(buff !== -1)
+			    {
+				    const input = buffer.substring(0,buff);
+				    this.emit('message' , JSON.parse(input));
+				    buffer = ''; 
+			    }
+			    else
+			    {
+				    throw "Error in close event";
+			    }
+		    });
+        }
+        else
+            console.log('Error, constructor con parámetro null\n');
 	}
 
 	
