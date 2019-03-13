@@ -1,0 +1,25 @@
+{
+  "name": "networking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "binding-net.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "networking/node_modules/.bin/mocha networking/test/ldj-null.js networking/test/ldj-client-test.js networking/test/ldj-split.js networking/test/test-robustness-close-event.js networking/test/test-robustness-not-json.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jsdoc": "^3.5.5",
+    "mocha": "3.4.2"
+  },
+  "dependencies": {
+    "dev-null": "^0.1.1",
+    "gulp": "^4.0.0",
+    "gulp-shell": "^0.7.0",
+    "make": "^0.8.1"
+  }
+}

@@ -18,6 +18,8 @@
   },
   "dependencies": {
     "dev-null": "^0.1.1",
+    "gulp": "^4.0.0",
+    "gulp-shell": "^0.7.0",
     "make": "^0.8.1"
   }
 }
